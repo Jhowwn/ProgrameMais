@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "AprendaProgramar",
+    "slug": "AprendaProgramar",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/IMG/icon.png",
+    "splash": {
+      "image": "./assets/IMG/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/IMG/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    "web": {
+      "favicon": "./assets/IMG/favicon.png"
+    }
+  }
+}
