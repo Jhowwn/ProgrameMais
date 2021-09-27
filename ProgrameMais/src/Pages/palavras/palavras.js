@@ -17,9 +17,6 @@ function Palavras({route}){
 
 
 const styles = StyleSheet.create({
-  photo:{
-    aspectRatio: 1
-  },
   container:{
     padding: 10,
   }

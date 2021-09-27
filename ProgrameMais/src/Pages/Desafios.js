@@ -14,23 +14,6 @@ function Desafios(props) {
 
   const {navigation} = props;
 
-  const [desafio, setDesafio] = useState([]);
-
-  useEffect( () => {
-    const request = {
-      "perguntas": "",
-      "alternativas": "",
-    }
-
-      axios.post('http://192.168.100.57/tcc/questionario/questionarioBasico', request)
-      .then(resposta =>{
-        setDesafio(resposta.data.dados)
-      }).catch(err =>{
-        console.log("Ocorreu um erro" + err)
-      });
-  }, []);
-
-  console.log(desafio);
     return (
       <ScrollView>
 
@@ -42,25 +25,18 @@ function Desafios(props) {
           <View style={styles.container}>
             <View>
 
-              {/*<Text style={styles.desafios}>Python: 0 a 10 Perguntas</Text>
-
-              <DesafiosList desafio={desafio} navigation={navigation}/>
-            
-              <Text style={styles.desafios}>JavaScript: 0 a 10 Perguntas</Text>
-            
-    <Text style={styles.desafios}>Java: 0 a 10 Perguntas</Text>*/}
-          <Button style={styles.btn} mode="contained" 
-          onPress={()=>navigation.navigate("Questionário", {text: "Python"})}>
-              Python
-          </Button>
-          <Button style={styles.btn} mode="contained" 
-          onPress={()=>navigation.navigate("Questionário", {text: "Javascript"})}>
-              JavaScript
-          </Button>
-          <Button style={styles.btn} mode="contained" 
-          onPress={()=>navigation.navigate("Questionário", {text: "Java"})}>
-              Java
-          </Button>
+              <Button style={styles.btn} mode="contained" 
+              onPress={()=>navigation.navigate("Questionário", {text: "Python"})}>
+                  Python
+              </Button>
+              <Button style={styles.btn} mode="contained" 
+              onPress={()=>navigation.navigate("Questionário", {text: "Javascript"})}>
+                  JavaScript
+              </Button>
+              <Button style={styles.btn} mode="contained" 
+              onPress={()=>navigation.navigate("Questionário", {text: "Java"})}>
+                  Java
+              </Button>
 
             </View>
 
