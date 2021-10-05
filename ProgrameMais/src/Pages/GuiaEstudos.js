@@ -16,7 +16,7 @@ function GuiaEstudos(props) {
       "descricao": "" 
     }
 
-      axios.post('http://192.168.100.57/tcc/guia/consultarGuia', request)
+      axios.post('http://192.168.100.42/compras/guia/consultarGuia', request)
       .then(resposta =>{
         setGuia(resposta.data.dados)
       }).catch(err =>{

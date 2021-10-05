@@ -1,6 +1,5 @@
 import { StyleSheet } from "react-native";
 
-
 const styles= StyleSheet.create({
     container:{
         flex:1,
@@ -11,7 +10,6 @@ const styles= StyleSheet.create({
       fontSize: 25,
       fontWeight: 'bold',
       color: '#0f0a0a'
-      
     },
     questaoDivisao: {
       backgroundColor: '#E2F9FF',
@@ -29,6 +27,9 @@ const styles= StyleSheet.create({
         color: '#0f0a0a',
         padding: 10
     },
+    safeArea:{
+      flex: 1
+    }
 })
 
 export default styles;

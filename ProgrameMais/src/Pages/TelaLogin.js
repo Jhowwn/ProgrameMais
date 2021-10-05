@@ -30,8 +30,8 @@ function Login({navigation}){
             navigation.navigate('Aprenda Programar', MainScreen);
         }else if(data === "Login incorreto!"){
             
-            alert("Usuario não localizado");
-            navigation.navigate('Cadastrar', Cadastro);
+            alert("Dados não inseridos");
+            
             
         }
 

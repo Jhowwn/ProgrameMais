@@ -5,6 +5,7 @@ const router = express.Router();
 
 //let answers;
 let prova = [];
+//let cont = 0;
 
 // Função para embaralhar as respostas
 function misturaArray(arr) {
@@ -22,20 +23,14 @@ function misturaArray(arr) {
 
 function workQuestion(quest){
 
-    //let idQuest;
     misturaArray(quest);
-    //console.log(quest.length)
-    
-    //quest = quest.slice(3,quest.length);
-    
-    
-    //console.log("depois do "+quest.length);
     return quest;
-    //console.log(quest);
 }
 
-function getAlternativas(quest, answ){
+function getAlternativas(quest, answ, cont){
+    let prov =[];
     
+    let perg;
     // assegurando a resposta correta
     let correct = answ[0];
     //excluindo a resposta correta do array
@@ -51,9 +46,32 @@ function getAlternativas(quest, answ){
     //mandando a resposta correta no final do array junto com as respostas erradas
     answ.push(correct);
     //Incluindo a questao no array de prova
-    prova.push(quest);
-    //Incluindo as respostas ja embaralhadas com a questao
-    prova.push(answ);
+    perg ={
+        id_questao: quest.id_questao,
+        questao: quest.questao,
+        alternativas:[
+            {
+                id: cont+1,
+                alternativa: answ[0].resposta_correta
+            },
+            {
+                id: cont+2,
+                alternativa: answ[1].resposta_correta
+            },
+            {
+                id: cont+3,
+                alternativa: answ[2].resposta_correta
+            },
+            {
+                id: cont+4,
+                alternativa: answ[3].resposta_correta
+            }
+        ],
+        corect: answ[4].resposta_correta,
+    }
+    
+    prova.push(perg);
+    //console.log(prova[0].questao);
 
 }
 
@@ -61,22 +79,36 @@ router.get("/language/:lang", async (req, res)=>{
     const {lang} = req.params;
     const questao = await db.getQuestion(lang);
     const questFinal = workQuestion(questao);
+    //console.log(questFinal)
+
  
-    let answers = await db.getAnswer(questFinal[0].id_questao);
-    getAlternativas(questFinal[0], answers);
+    //let answers = await db.getAnswer(questFinal[0].id_questao, questFinal[1].id_questao, questFinal[2].id_questao);
+    //let respostas = answers.slice(0,3);
+    //answers = answers.sort();
+   // console.log(respostas);
+    
+    //getAlternativas(questFinal[0], answers[0], 0);
+    //getAlternativas(questFinal[1], answers[1], 4);
+    //getAlternativas(questFinal[0], answers[0], 0);
+    let answers = await db.obterRespostas(questFinal[0].id_questao);
+    getAlternativas(questFinal[0], answers, 0);
+    //console.log(answers)
     answers = [];
-    console.log(questFinal[0].id_questao);
-    answers = await db.getAnswer(questFinal[1].id_questao);
-    getAlternativas(questFinal[1], answers);
+    //console.log(questFinal[0].id_questao);
+    answers = await db.obterRespostas(questFinal[1].id_questao);
+    getAlternativas(questFinal[1], answers, 4);
     answers = [];
-    console.log(questFinal[1].id_questao);
-    answers = await db.getAnswer(questFinal[2].id_questao);
-    getAlternativas(questFinal[2], answers);
+    //console.log(questFinal[1].id_questao);
+    answers = await db.obterRespostas(questFinal[2].id_questao);
+    getAlternativas(questFinal[2], answers, 8);
     answers=[];
-    console.log(questFinal[2].id_questao);
+    //console.log(questFinal[2].id_questao);
+    //console.log(prova[0].questao);
     
     res.send(prova);
+    //console.log(prova);
     prova=[];
+    //cont = 0;
 });
 
 

@@ -20,7 +20,7 @@ function Dicionario(props) {
         "descricao": ""
     }
 
-    axios.post('http://192.168.100.57/tcc/dicionario/consultarPY', request)
+    axios.post('http://192.168.100.42/compras/dicionario/consultarPY', request)
         .then(resposta =>{
           setDici(resposta.data.dados)
         }).catch(err =>{

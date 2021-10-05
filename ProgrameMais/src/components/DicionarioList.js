@@ -4,12 +4,12 @@ import {View, Text, StyleSheet, TouchableHighlight} from 'react-native';
 function DicionarioList({dici, navigation}){
     if (dici.length != 0){
         const textElements = dici.map((dicionario) =>{
-            const {id_python, descricao, palavra} = dicionario;
+            const {id_palavra, descricao, palavra} = dicionario;
             
           return(
             <TouchableHighlight onPress={()=>{
                 navigation.navigate("Palavras",{dicionario});//Pode remover, isso vai para a palavra individual
-            }} key={id_python}>
+            }} key={id_palavra}>
                 <View style={styles.container}>
                     <Text style={styles.dicionario}>{`${palavra}`}</Text>
                     <Text style={styles.palavras}>{`${descricao}`}</Text>
