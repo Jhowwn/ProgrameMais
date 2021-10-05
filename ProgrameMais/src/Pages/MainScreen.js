@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, StyleSheet, ScrollView} from 'react-native';
-import Box from '../components/Box'
+import Box from '../components/Box';
+import Novidades from '../components/Novidades';
 
 function MainScreen(props) {
 
@@ -44,6 +45,9 @@ function MainScreen(props) {
 
         <View styles={styles.divisao}>
           <Text style={styles.novidades}>Novidades</Text>
+          <View styles={styles.divisao}>
+            <Novidades />
+          </View>
         </View>
 
       </View>

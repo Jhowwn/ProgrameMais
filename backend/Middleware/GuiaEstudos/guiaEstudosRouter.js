@@ -8,4 +8,4 @@ router.get("/", async(req, res) =>{
     res.send(guiaEstudos);
 });
 
-export default router
+export default router;

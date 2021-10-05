@@ -15,7 +15,6 @@ function Dicionario(props) {
   const [dici, setDici] = useState([]);
 
   useEffect( () => {
-
     axios.get(config.urlNode+"dicionario")
         .then(resposta =>{
           setDici(resposta.data)

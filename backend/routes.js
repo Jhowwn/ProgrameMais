@@ -5,6 +5,7 @@ import parceirosRouter from "./Middleware/Parceiros/parceirosRouter.js";
 import desafiosRouter from "./Middleware/Desafios/desafiosRouter.js";
 import dicionarioRouter from "./Middleware/Dicionario/dicionarioRouter.js";
 import guiaEstudosRouter from "./Middleware/GuiaEstudos/guiaEstudosRouter.js";
+import novidadesRouter from "./Middleware/Novidades/novidadesRouter.js";
 
 
 const router = express.Router();
@@ -20,6 +21,8 @@ router.use("/desafio", desafiosRouter);
 router.use("/dicionario", dicionarioRouter);
 
 router.use("/guiaEstudos", guiaEstudosRouter);
+
+router.use("/novidades", novidadesRouter);
 
 
 export default router;
