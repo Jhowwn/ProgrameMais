@@ -2,6 +2,7 @@ import { Text, View, StyleSheet, ScrollView, Dimensions} from 'react-native';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import GuiaList from '../components/GuiaList';
+import config from "../../Config/config.json";
 
 function GuiaEstudos(props) {
   //Cria uma função para pegar os dados do banco;
@@ -10,15 +11,9 @@ function GuiaEstudos(props) {
   const [guia, setGuia] = useState([]);
 
   useEffect(() => {
-    const request = {
-      "id" : "",
-      "guia" : "",
-      "descricao": "" 
-    }
-
-      axios.post('http://192.168.100.42/compras/guia/consultarGuia', request)
+      axios.get(config.urlNode+"guiaEstudos")
       .then(resposta =>{
-        setGuia(resposta.data.dados)
+        setGuia(resposta.data)
       }).catch(err =>{
         console.log("Ocorreu um erro" + err)
       });

@@ -2,6 +2,7 @@ import { Text, View, StyleSheet, ScrollView, Dimensions} from 'react-native';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Dici from '../components/DicionarioList';
+import config from "../../Config/config.json";
 
 function Dicionario(props) {
 
@@ -14,15 +15,10 @@ function Dicionario(props) {
   const [dici, setDici] = useState([]);
 
   useEffect( () => {
-    const request = {
-        "id": "",
-        "palavra": "",
-        "descricao": ""
-    }
 
-    axios.post('http://192.168.100.42/compras/dicionario/consultarPY', request)
+    axios.get(config.urlNode+"dicionario")
         .then(resposta =>{
-          setDici(resposta.data.dados)
+          setDici(resposta.data)
         }).catch(err =>{
           console.log("Ocorreu um erro" + err)
         });
