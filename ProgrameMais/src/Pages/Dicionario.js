@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Dici from '../components/DicionarioList';
 import config from "../../Config/config.json";
+import styles from '../../assets/CSS/stylesCss';
 
 function Dicionario(props) {
 
@@ -46,31 +47,5 @@ function Dicionario(props) {
       </ScrollView>
     )
 }
-
-const styles= StyleSheet.create({
-  text:{
-    fontSize: 25,
-    fontWeight: 'bold',
-    color: '#0f0a0a',
-    padding: 20,
-  },
-  dicionario:{
-      fontSize: 20,
-      fontWeight: 'bold',
-      color: '#0f0a0a',
-      padding: 20,
-  },
-  divisao:{
-    borderBottomColor: 'black',
-    borderBottomWidth: 1,
-  },
-  container: {
-    backgroundColor: '#E2F9FF',
-    borderBottomColor:"#bbb",
-    borderBottomWidth: 4,
-    flexDirection: 'row',
-    alignItems: 'center',
-},
-});
 
 export default Dicionario;

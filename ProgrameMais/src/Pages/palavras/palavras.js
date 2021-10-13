@@ -1,11 +1,10 @@
 import React from 'react';
-import {Text, StyleSheet, View} from 'react-native';
+import {Text, View} from 'react-native';
+import styles from '../../../assets/CSS/stylesCss';
 
 function Palavras({route}){
 
   const {dicionario} = route.params;
-
-   console.log(dicionario)
 
   return(
     <View style={styles.container}>
@@ -17,12 +16,5 @@ function Palavras({route}){
     </View>
   );
 }
-
-
-const styles = StyleSheet.create({
-  container:{
-    padding: 10,
-  }
-});
 
 export default Palavras;

@@ -14,7 +14,7 @@ function MainScreen(props) {
           <Text style={styles.text}>Escolha O Que Deseja Fazer</Text>
         </View>
         
-        <View style={styles.container}>{/* Criandio os dados para navegação para o componente box,
+        <View style={styles.container}>{/* Criando os dados para navegação para o componente box,
          sendo titulo e descrição*/}
           <Box titulo='Dicionário'
           descricao ='Proucure comandos e palavras que você precisar'
@@ -30,16 +30,6 @@ function MainScreen(props) {
 
           <Box titulo ='Desafios'
           descricao= 'Treine suas habilidades de programação com nossos desafios'
-          navigation={navigation}/>
-
-
-          {/* Login e Cadastro estão aqui apenas para demostração de navegação!!!*/}
-          <Box titulo ='Login'
-          descricao= 'Entre na sua conta'
-          navigation={navigation}/>
-
-          <Box titulo ='Cadastrar'
-          descricao= 'Crie sua conta'
           navigation={navigation}/>
         </View>
 
