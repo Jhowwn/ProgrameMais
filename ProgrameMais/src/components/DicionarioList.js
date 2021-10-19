@@ -10,6 +10,7 @@ function DicionarioList({dici, navigation}){
           return(
             <TouchableHighlight onPress={()=>{
                 navigation.navigate("Palavras",{dicionario});//Pode remover, isso vai para a palavra individual
+                
             }} key={id_palavra}>
                 <View style={styles.containerDici}>
                     <Text style={styles.diciPalavra}>{`${palavra}`}</Text>

@@ -5,6 +5,7 @@ import { TextInput, Button  } from 'react-native-paper';
 import MainScreen from './MainScreen';
 import Cadastro from './Cadastro';
 import config from "../../Config/config.json";
+import Dicionario from './Dicionario';
 
 function Login({navigation}){
 
@@ -27,11 +28,10 @@ function Login({navigation}){
 
         if (data !== "Login incorreto!"){
             alert(data.user[0].nome);
-            navigation.navigate('Aprenda Programar', MainScreen);
+            navigation.navigate('Dicionario', Dicionario);
         }else if(data === "Login incorreto!"){
             
             alert("Dados não inseridos");
-            
             
         }
 
@@ -66,7 +66,6 @@ function Login({navigation}){
         </View>
         )
 }
-
 
 
 export default Login;
