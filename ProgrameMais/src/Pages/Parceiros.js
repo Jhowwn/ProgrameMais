@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import ParceirosList from '../components/ParceirosList';
 import config from "../../Config/config.json";
-
+import styles from '../../assets/CSS/stylesCss';
 
 function Parceiros(props) {
   //Cria uma função para pegar os dados do banco;
@@ -34,13 +34,13 @@ function Parceiros(props) {
             </View>
   
             <View style={styles.divisao}>
-              <Text style={styles.dicionario}>Encontre um Parceiro para seus Estudos </Text>
+              <Text style={styles.parceiro}>Encontre um Parceiro para seus Estudos </Text>
             </View>
   
             <View>
+
               <ParceirosList parce={listState} navigation={navigation}/>
               
-  
             </View>
 
       </View>
@@ -48,32 +48,5 @@ function Parceiros(props) {
     
   )
 }
-
-
-const styles= StyleSheet.create({
-text:{
-  fontSize: 25,
-  fontWeight: 'bold',
-  color: '#0f0a0a',
-  padding: 20,
-},
-dicionario:{
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#0f0a0a',
-    padding: 20,
-},
-divisao:{
-  borderBottomColor: 'black',
-  borderBottomWidth: 1,
-},
-container: {
-  backgroundColor: '#E2F9FF',
-  borderBottomColor:"#bbb",
-  borderBottomWidth: 4,
-  flexDirection: 'row',
-  alignItems: 'center',
-},
-});
 
 export default Parceiros

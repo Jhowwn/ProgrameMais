@@ -64,14 +64,16 @@ import React from 'react'
 import News from './src/Pages/News';
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import GuiaEstudos from './src/Pages/GuiaEstudos';
+import GuiaEstudo from './src/Pages/GuiaEstudos';
 import Desafio from './src/Pages/Desafios';
-import Parceiros from './src/Pages/Parceiros';
+import Parceiro from './src/Pages/Parceiros';
 import Dicionarios from './src/Pages/Dicionario';
 import Login from './src/Pages/TelaLogin';
 import Cadastrar from './src/Pages/Cadastro';
 import Palavras from './src/Pages/palavras/palavras';
-import Questionario from "./src/Pages/Questionario.js"
+import Questionario from "./src/Pages/Questionario.js";
+import InfoParceiro from './src/Pages/parceiros/InfoParceiro';
+import Estudos from './src/Pages/estudos/estudos';
 
 function Route() {
 
@@ -111,6 +113,36 @@ function Route() {
     )
   }
 
+  function Parceiros() {
+    return(
+      <Stack.Navigator>
+        <Stack.Screen name="Parceiro" component={Parceiro}  options={{ headerShown: false }}/>
+        <Stack.Screen name="InfoParceiro" component={InfoParceiro} options={({route})=>{
+        const titlePage = route.params.partner.nome_parceiro;
+
+        return({
+          title: titlePage,
+        });
+      }}/>
+      </Stack.Navigator>
+    )
+  }
+
+  function GuiaEstudos() {
+    return(
+      <Stack.Navigator>
+        <Stack.Screen name="Guia" component={GuiaEstudo}  options={{ headerShown: false }}/>
+        <Stack.Screen name="Estudos" component={Estudos} options={({route})=>{
+        const titlePage = route.params.estudos.nome_guia;
+
+        return({
+          title: titlePage,
+        });
+      }}/>
+      </Stack.Navigator>
+    )
+  }
+
   return (//Crianda todas as navegações do nosso app
     <NavigationContainer>
       <Drawer.Navigator 
@@ -128,8 +160,12 @@ function Route() {
         <Drawer.Screen name="Desafios"
         component={Desafios}
         options={style}/>
-        <Stack.Screen name="Guia de Estudos" component={GuiaEstudos}  options={style}/>
-        <Stack.Screen name="Parceiros" component={Parceiros}  options={style}/>
+        <Drawer.Screen name="Parceiros"
+        component={Parceiros}
+        options={style}/>
+        <Drawer.Screen name="Guia de Estudos"
+        component={GuiaEstudos}
+        options={style}/>
         <Drawer.Screen name="Novidades" component={News}  options={style}/>
       </Drawer.Navigator>        
     </NavigationContainer>

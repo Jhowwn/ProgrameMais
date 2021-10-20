@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import GuiaList from '../components/GuiaList';
 import config from "../../Config/config.json";
+import styles from '../../assets/CSS/stylesCss';
 
 function GuiaEstudos(props) {
   //Cria uma função para pegar os dados do banco;
@@ -40,32 +41,5 @@ function GuiaEstudos(props) {
       </ScrollView>
     );
 }
-
-const styles= StyleSheet.create({
-  text:{
-    fontSize: 25,
-    fontWeight: 'bold',
-    color: '#0f0a0a',
-    padding: 20,
-  },
-  cronograma:{
-      fontSize: 20,
-      fontWeight: 'bold',
-      color: '#0f0a0a',
-      padding: 20,
-  },
-  divisao:{
-    borderBottomColor: 'black',
-    borderBottomWidth: 1,
-  },
-  container: {
-    backgroundColor: '#E2F9FF',
-    borderBottomColor:"#bbb",
-    borderBottomWidth: 4,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  });
-  
 
 export default GuiaEstudos;
