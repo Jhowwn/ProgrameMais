@@ -61,11 +61,11 @@ export default Route;*/
 
 import { NavigationContainer } from '@react-navigation/native'
 import React from 'react'
-import MainScreen from './src/Pages/MainScreen';
+import News from './src/Pages/News';
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import GuiaEstudos from './src/Pages/GuiaEstudos';
-import Desafios from './src/Pages/Desafios';
+import Desafio from './src/Pages/Desafios';
 import Parceiros from './src/Pages/Parceiros';
 import Dicionarios from './src/Pages/Dicionario';
 import Login from './src/Pages/TelaLogin';
@@ -102,6 +102,15 @@ function Route() {
     )
   }
 
+  function Desafios(){
+    return (
+      <Stack.Navigator>
+        <Stack.Screen name="Desafio" component={Desafio}  options={{ headerShown: false }}/>
+        <Stack.Screen name="Questionário"  component={Questionario}  options={style, null}/>
+      </Stack.Navigator>
+    )
+  }
+
   return (//Crianda todas as navegações do nosso app
     <NavigationContainer>
       <Drawer.Navigator 
@@ -116,10 +125,12 @@ function Route() {
         <Drawer.Screen name="Dicionario"
         component={Dicionario}
         options={style}/>
+        <Drawer.Screen name="Desafios"
+        component={Desafios}
+        options={style}/>
         <Stack.Screen name="Guia de Estudos" component={GuiaEstudos}  options={style}/>
-        <Stack.Screen name="Desafios" component={Desafios}  options={style}/>
         <Stack.Screen name="Parceiros" component={Parceiros}  options={style}/>
-        <Drawer.Screen name="Aprenda Programar" component={MainScreen}  options={style}/>
+        <Drawer.Screen name="Novidades" component={News}  options={style}/>
       </Drawer.Navigator>        
     </NavigationContainer>
   )

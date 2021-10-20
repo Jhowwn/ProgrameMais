@@ -2,8 +2,8 @@ import axios from 'axios';
 import { Text, View, StyleSheet, ScrollView} from 'react-native';
 import React, { useState} from 'react';
 import { TextInput, Button  } from 'react-native-paper';
-import MainScreen from './MainScreen';
 import config from "../../Config/config.json";
+import News from './News';
 
 function Cadastrar({navigation}){
 
@@ -32,7 +32,7 @@ function Cadastrar({navigation}){
         }else{
             if(password === confirmPass){
                 alert(data);
-                navigation.navigate('Aprenda Programar', MainScreen);
+                navigation.navigate('News', News);
             }
             else if(password !== confirmPass){
                 alert("Senha está diferente");

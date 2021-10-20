@@ -2,7 +2,6 @@ import axios from 'axios';
 import { Text, View, StyleSheet, ScrollView} from 'react-native';
 import React, { useState} from 'react';
 import { TextInput, Button  } from 'react-native-paper';
-import MainScreen from './MainScreen';
 import Cadastro from './Cadastro';
 import config from "../../Config/config.json";
 import Dicionario from './Dicionario';
