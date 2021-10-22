@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, ScrollView} from 'react-native';
 import React, { useState} from 'react';
 import { TextInput, Button  } from 'react-native-paper';
 import config from "../../Config/config.json";
-import News from './News';
+import Dicionario from './Dicionario'
 
 function Cadastrar({navigation}){
 
@@ -24,22 +24,22 @@ function Cadastrar({navigation}){
 
         event.preventDefault();
 
-        const {data} = await axios.post(`${config.urlNode}cadastrar`, userData);
-        console.log(data)
-
-        if (data.codigo !== 1 ){
-                alert(data);   
-        }else{
-            if(password === confirmPass){
-                alert(data);
-                navigation.navigate('News', News);
-            }
-            else if(password !== confirmPass){
-                alert("Senha está diferente");
-                
-            }
-            
+        if(password == ''|| confirmPass == '' || name =='' || username == ''){
+            alert('Você não preencheu alguns dados')
         }
+        else if(password !== confirmPass){
+            alert("Senha está diferente");
+        }else{
+            const {data} = await axios.post(`${config.urlNode}cadastrar`, userData);
+    
+            if (data == 'Usuário já tem cadastro no sistema!' ){
+                alert(`${data}/n Escolha outro usuario!`);   
+            }else{
+                    alert(data);
+                    navigation.navigate('Dicionario', Dicionario);
+                }
+        }
+        
 
     }
 
