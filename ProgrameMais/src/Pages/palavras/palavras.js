@@ -8,11 +8,11 @@ function Palavras({route}){
 
   return(
     <View style={styles.container}>
-        <Text>Palavra: {dicionario.palavra}</Text>
-        <Text>descricao: {dicionario.descricao}</Text>
-        <Text>exemplos: {dicionario.exep_python}</Text>
-        <Text>exemplos: {dicionario.exep_java}</Text>
-        <Text>exemplos: {dicionario.exep_javascript}</Text>
+        <Text style={styles.palavraNome}>Palavra: {dicionario.palavra}</Text>
+        <Text style={styles.palavrasDescricao}>descricao: {dicionario.descricao}</Text>
+        {dicionario.exep_python !== "" && <Text style={styles.boxExep}>exemplo Python: {dicionario.exep_python}</Text>}
+        {dicionario.exep_python !== "" && <Text style={styles.boxExep}>exemplo Java: {dicionario.exep_java}</Text>}
+        {dicionario.exep_python !== "" && <Text style={styles.boxExep}>exemplo JavaScript: {dicionario.exep_javascript}</Text>}
     </View>
   );
 }

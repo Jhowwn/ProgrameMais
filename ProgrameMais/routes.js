@@ -73,7 +73,7 @@ import Cadastrar from './src/Pages/Cadastro';
 import Palavras from './src/Pages/palavras/palavras';
 import Questionario from "./src/Pages/Questionario.js";
 import InfoParceiro from './src/Pages/parceiros/InfoParceiro';
-import Estudos from './src/Pages/estudos/estudos';
+import Estudos from './src/Pages/estudos/Estudos.js';
 
 function Route() {
 

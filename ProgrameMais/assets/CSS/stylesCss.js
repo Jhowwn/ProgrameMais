@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { startClock } from "react-native-reanimated";
 
 const styles= StyleSheet.create({
     container:{
@@ -88,22 +89,60 @@ const styles= StyleSheet.create({
       fontWeight: 'bold',
       color: '#0f0a0a',
       padding: 20,
-  },
-  containerGuia: {
-    backgroundColor: '#E2F9FF',
-    borderBottomColor:"#bbb",
-    borderBottomWidth: 4,
-  },
-  descGuia:{
-    fontSize: 15,
-    color: '#0f0a0a',
-    padding: 10,
-  },
-  guia:{
-      fontSize: 20,
-      fontWeight: 'bold',
+    },
+    containerGuia: {
+      backgroundColor: '#E2F9FF',
+      borderBottomColor:"#bbb",
+      borderBottomWidth: 4,
+    },
+    descGuia:{
+      fontSize: 15,
       color: '#0f0a0a',
-  },
+      padding: 10,
+    },
+    guia:{
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: '#0f0a0a',
+    },
+    //Estilização da page Palavras
+    palavraNome:{
+      fontSize: 20,
+      padding: 10,
+      
+    },
+    palavrasDescricao: {
+      fontSize: 15,
+      textAlign: 'center',
+      padding: 10
+    },
+    boxExep: {
+      fontSize: 15,
+      textAlign: 'center',
+      padding: 10
+    },
+     //Estilização da page Estudos
+     guiaNome:{
+      fontSize: 20,
+      padding: 10,
+      fontWeight: 'bold'
+    },
+    guiaDescricao: {
+      fontSize: 15,
+      textAlign: 'center',
+      padding: 10
+    },
+    guiaExep: {
+      fontSize: 15,
+      textAlign: 'center',
+      padding: 10
+    },
+    linkGuia: {
+      fontSize: 15,
+      textAlign: 'center',
+      color: 'blue',
+      padding: 10
+    }
 })
 
 export default styles;
