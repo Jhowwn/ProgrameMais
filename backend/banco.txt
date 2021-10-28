@@ -1,0 +1,278 @@
+CREATE DATABASE IF NOT EXISTS aprendaProgramar;
+
+use aprendaProgramar;
+ 
+#Estrutura da tabela usuários
+create table IF NOT EXISTS usuarios (
+	id_usuario integer auto_increment primary key,
+    usuario varchar(35) not null,
+    senha varchar(64) not null,
+    estatus varchar(01) default 'A',
+    nome varchar(30) not null
+);
+
+#Criando a tabela de Parceiros
+CREATE TABLE IF NOT EXISTS tbl_parceiros (
+	id_parceiro INT AUTO_INCREMENT PRIMARY KEY,
+    nome_parceiro VARCHAR(45) NOT NULL,
+    descricao_parceiro VARCHAR(250) NOT NULL
+); 
+
+#Criando a tabela de Guia de Estudos
+CREATE TABLE IF NOT EXISTS tbl_guiaEstudos (
+	id_guia INT AUTO_INCREMENT PRIMARY KEY,
+    nome_guia VARCHAR(45) NOT NULL,
+    descricao_guia VARCHAR(1000) NOT NULL,
+    link_python varchar(1000),
+    link_java varchar(1000),
+    link_javascript varchar(1000)
+);
+
+#Criando a tabela de Dicionario
+create table IF NOT EXISTS tbl_dicionario (
+	id_palavra int not null primary key auto_increment,
+    palavra varchar(40) not null,
+    descricao varchar(250) not null,
+    exep_python varchar(250) not null,
+    exep_java varchar(250) not null,
+    exep_javascript varchar(250) not null
+);
+
+create table if not exists tbl_questoes(
+	id_questao int primary key auto_increment,
+    questao varchar(100) not null,
+    linguagem varchar(10),
+    resposta_correta varchar(70) not null
+);
+create table if not exists tbl_resp_errada(
+	id_resposta int primary key auto_increment,
+    resp_errada varchar(75) not null,
+    fk_id_questao int not null,
+    
+    constraint fk_id_questao foreign key (fk_id_questao) references tbl_questoes(id_questao)
+);
+
+create table if not exists tbl_novidades(
+	id_novidades int primary key auto_increment,
+    titulo_novidade varchar(100) not null,
+    novidade varchar(1000) not null,
+    data_novidade datetime default now()
+);
+
+#drop table tbl_questoes;
+update tbl_questoes set linguagem = 'Java' where id_questao = 2;
+insert into tbl_questoes (questao, linguagem, resposta_correta) values 
+('O que é um atributo?','Java','Atributo é uma característica de um objeto, de uma classe'),
+('Em programação o que é um objeto?','Java','É um elemento do mundo real represntado no mundo virtual'),
+('Qual dos itens é uma fruta?','Java','Limão'),
+('Qual dos itens é um legume','Java','Cebola');
+insert into tbl_resp_errada(resp_errada, fk_id_questao) values ('É um padrão de desenvolvimento',2),
+													('É padrão de desenvolvimento utilizado somente em java',2),
+													('É tudo aquilo que possui caráter material e inanimado',2),
+                                                    ('É um conceito informal do mundo de desenvolvimento',2),
+                                                    ('Rapadura',3),
+                                                    ('Cenoura',3),
+                                                    ('Cebola',3),
+                                                    ('Batata',3),
+                                                    ('Limão',4),
+                                                    ('Laranja',4),
+                                                    ('Uva',4),
+                                                    ('Ovo',4),
+                                                    ('É um objeto',1),
+                                                    ('É um padrão de desenvolvimento',1),
+                                                    ('É uma biblioteca java',1),
+                                                    ('É um framework',1);
+
+insert into usuarios (usuario, senha, nome) values ("paulo@hotmail.com","123456","Paulo Leonardo"),
+("wilhelsen@programemais.com","123","Wilhelsen da Silva");
+select * from usuarios where usuario = 'wilhelsen@programemais.com' and senha = 'senha123456';
+
+select a.questao, a.resposta_correta, b.resp_errada from tbl_questoes a
+ join tbl_resp_errada b on a.id_questao=b.fk_id_questao
+where id_questao =2 group by b.resp_errada;
+
+select resposta_correta 
+from tbl_questoes where id_questao = 2
+union select resp_errada from tbl_resp_errada where fk_id_questao = 2;
+
+select a.resposta_correta, b.resp_errada as alternativas from tbl_questoes as a 
+join tbl_resp_errada as b where a.id_questao = b.fk_id_questao;
+
+#select questao, resposta_correta from tbl_questoes as a 
+#where id_questao in (
+#select resp_errada from tbl_resp_errada as b 
+#where a.id_questao = b.fk_id_questao);
+
+insert into tbl_parceiros (nome_parceiro, descricao_parceiro) values ('ETEC de Embú','Instituição do governo');
+insert into tbl_parceiros (nome_parceiro, descricao_parceiro) values ('RocketSeat','Empresa de cursos de programação');
+
+SELECT id_questao, questao FROM tbl_questoes;
+SELECT id_questao, questao FROM tbl_questoes Where linguagem = 'Java';
+
+# CONFERINDO AS TABELAS 
+select * from tbl_dicionario;
+select * from tbl_parceiros;
+select * from usuarios;
+select * from tbl_guiaEstudos;			
+select * from tbl_questoes;
+select * from tbl_resp_errada;
+select * from tbl_novidades where data_novidade >= curdate();
+select * from tbl_novidades;
+insert into tbl_novidades(titulo_novidade, novidade, data_novidade)
+values("antes", "ass", "2021-10-03 16:20:39"),
+("Novidades", "Falando sobre novidades", default);
+
+
+select * from tbl_dicionario where palavra like "%olho%" order by palavra;
+select * from tbl_dicionario order by palavra;
+select * from tbl_guiaEstudos group by nome_guia;		
+
+select * from tbl_guiaEstudos group by nome_guia;	
+###########################################################
+
+
+
+INSERT INTO tbl_guiaEstudos (nome_guia, descricao_guia, link_python, link_java, link_javascript)
+VALUES ("OPERADORES-LOGICOS","Os operadores são usados na construção de expressões, as quais contém um número variado de operandos. Por exemplo, na expressão a + b, temos o operador de aritmético + e operandos são as variáveis a e b.", 
+"https://www.devmedia.com.br/operadores-no-python/40693",
+"https://www.alura.com.br/artigos/operadores-matematicos-em-javascript?gclid=EAIaIQobChMIhOury4zf8wIVBAyRCh2j8A2pEAAYASAAEgLtGfD_BwE",
+"https://www.devmedia.com.br/java-operadores-de-atribuicao-aritmeticos-relacionais-e-logicos/38289"
+),
+
+("VARIAVEIS E TIPOS ","Variáveis em Javascript são uma forma para se salvar dados que possam ser acessados e/ou manipulados posteriormente, independente do tipo desses dados, strings, números, booleanos, arrays, objetos ou funções.",
+"https://pythonacademy.com.br/blog/tipos-de-variaveis-no-python",
+"https://www.todoespacoonline.com/w/2014/04/variaveis-em-javascript/",
+"https://www.devmedia.com.br/tipos-de-dados-por-valor-e-por-referencia-em-java/25293"
+),
+
+("MANIPULAÇÃO DE STRINGS ","Um tipo de dado bastante usado no dia a dia são as strings, ou cadeias de caracteres (ou sequências de caracteres). Possui várias operações úteis. Essas operações tornam bastante propícia para manipulação de textos.",
+"https://algoritmosempython.com.br/cursos/programacao-python/strings/",
+"https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/First_steps/Useful_string_methods",
+"https://www.devmedia.com.br/java-string-manipulando-metodos-da-classe-string/29862"
+),
+
+("CONDICIONAIS ","Uma Estrutura de Condição, como o próprio nome já diz, verifica a condição dos argumentos passados e, executa um comando caso a condição seja verdadeira ou falsa.",
+"https://www.devmedia.com.br/aprendendo-a-programar-em-python-estruturas-condicionais-if/17358",
+"https://www.devmedia.com.br/javascript-estrutura-condicional-if/40611",
+"https://www.devmedia.com.br/estruturas-condicionais-em-java/21135"
+),
+
+("ESTRUTURAS DE REPETIÇÕES ","As linguagens de programação normalmente suportam tanto estruturas condicionais como também os chamados laços de repetição, estruturas que permitem a execução de instruções repetidas vezes, até que uma condição seja atingida.",
+"https://www.devmedia.com.br/estruturas-de-repeticao-em-python/41551",
+"https://www.treinaweb.com.br/blog/estruturas-condicionais-e-estruturas-de-repeticao-em-javascript",
+"https://www.devmedia.com.br/revisando-estruturas-de-repeticao-em-java/19306 
+"),
+
+("FUNÇÕES / METODOS ", "Funções são um recurso poderoso das linguagens de programação. Ao desenvolver uma aplicação utilizamos elas a todo momento, quer sejam as que nós mesmos escrevemos para as rotinas especificas ou aquelas já disponibilizadas pela linguagem de programação escolhida, suas bibliotecas e frameworks.",
+"https://www.devmedia.com.br/funcoes-em-python/37340",
+"https://devcontent.com.br/artigos/javascript/funcoes",
+"https://www.devmedia.com.br/trabalhando-com-metodos-em-java/25917
+"),
+
+("JSON ","O JSON (Javascript Object Notation) é o formato mais usado para integração entre sistemas. Toda a linguagem de programação tem sua maneira de manipulá-lo.",
+"https://medium.com/@renatojlelis/trabalhando-com-json-no-python-1eb0f97c0c50",
+"https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Objects/JSON",
+"https://www.devmedia.com.br/trabalhando-com-json-em-java-o-pacote-org-json/25480
+"), 
+
+("API REST ", "Uma API, basicamente, é um conjunto de padrões de requisições e respostas que facilitam a construção de aplicações. Elas são responsáveis por retornar vários tipos de informações, existem APIs para retornar o clima de uma determinada cidade, o preço do dólar em um país, etc.",
+"https://www.treinaweb.com.br/blog/consumindo-apis-com-python-parte-1",
+"https://www.devmedia.com.br/javascript-dom-introducao-a-api/30161",
+"https://medium.com/assertqualityassurance/como-construir-e-testar-uma-api-em-java-utilizando-o-postman-baae69d8b8aa
+");
+
+select * from tbl_guiaEstudos;
+
+INSERT INTO tbl_dicionario (palavra,descricao,exep_python,exep_java,exep_javascript)
+VALUES 
+("ATRITUTO", "Um valor associado a um objeto ","1) nome ='jorge' ; 2) numero = 12 ", "1) String nome ='roberta' ; 2) Int num = 25" , "1) const/let nome ='carla' ; 2) const/let  num = 15"),
+("CLASSE","Um modelo para criação de objetos definidos pelo usuário. Definições de classe normalmente contém definições de métodos que operam sobre instâncias da classe.","class Filme:
+
+    pass
+
+vingadores = Filme()
+print(vingadores)" ,"class Cachorro{
+	int tamanho;
+	String nome;
+
+
+	void latir(){
+		if(tamanho > 60)
+			System.out.println('Wooof, Wooof!');",  "class Pessoa {
+    constructor(nome, sobrenome){
+        this.nome = nome
+        this.sobrenome = sobrenome
+    }
+}"),
+            ("COMPILAR","Traduzir todo um programa escrito em uma linguagem de alto nível para uma de baixo nível de uma só vez, em preparação para uma execução posterior.", "", "", ""),
+            ("DEPURAR","O processo de encontrar e remover qualquer um dos três tipos de erros de programação.", "", "", ""),
+            ("DECREMENTO/INCREMENTO","Para dimiuir ou aumentar o valor da variável.", "count = 0
+ 
+#Incremento : 
+count += 1
+ 
+#Decremento : 
+count -= 1 ", 
+"int X = 15;   ==> #Incremento :  x+=1  // #Decremento : x-=1 ", "var num = 10 ;  ===> # Incremento : num +=1  // # Decremento : num -= 1 "),
+            ("EXPRESSÃO","Uma parte da sintaxe que pode ser avaliada para algum valor. Em outras palavras, uma expressão é a acumulação de elementos de expressão como literais, nomes, atributos de acesso, operadores ou chamadas de funções, todos os quais retornam um valor.", "# Soma e subtração
+print(10 + 2 - 7) ==> [EXPRESSÃO ARITMÉTICA]", "int a = 2 ; int b = 2 ; System.out.println(a+b) ==> [EXPRESSAO ARITMETICA] ", "var a = 2 ; var b = 2 ; document.write(a+b) ==> [EXPRESSAO ARITMETICA]"),
+			("FOR","O laço for nos permite percorrer os itens de uma coleção e, para cada um deles, executar o bloco de código declarado no loop.", "frutas = ['Abacaxi', 'Morango', 'Uva']
+LAÇO FOR ==> for fruta in frutas:
+    print(fruta)
+# Resultado
+Abacaxi
+Morango
+Uva", "LAÇO FOR ==> for(int x = 0 ; x < 10 ; x++) { System.out.println('valor : ' +  x) }", "LAÇO FOR ==> for (var i = 0; i < 9; i++) {
+   console.log(i);
+   
+})"),
+            ("F-STRING","Literais string prefixadas com 'f' ou 'F' são conhecidas como “f-strings” que é uma abreviação de formatted string literals", "nome = 'larissa' ", "String nome = 'renata' ", "let nome = 'paulo'; "),
+            ("FUNÇÃO/METODO","Uma série de instruções que retorna algum valor para um chamador. Também pode ser passado zero ou mais argumentos que podem ser usados na execução do corpo. Veja também parâmetro, método e a seção Definições de função.", "==> def hello(meu_nome):
+  print('Olá',meu_nome)", "=> private Double saldo;
+
+	public void setSaldo(Double saldo) {
+		this.saldo = saldo;
+	}
+", "=> function myFunction(param){} 
+//definindo a função
+//invocando a função e passando como parâmetro outra função
+myFunction(function(){ console.log('função como parâmetro') })"),
+            ("IDLE","Um ambiente de desenvolvimento integrado para Python. IDLE é um editor básico e um ambiente interpretador que vem junto com a distribuição padrão do Python.", "(PYTHON) => IDE = PYCHARM E OUTROS ", "(JAVA) => IDE = NETBEANS E OUTROS", "(JAVASCRIPT) => IDE = VSCODE E OUTROS "),
+            ("IMPORTAÇÃO","O processo pelo qual o código Python em um módulo é disponibilizado para o código Python em outro módulo.", "(PYTHON) => (IMPORTAÇÃO) => import math
+print(math.sqrt(25))", "(JAVA) => (IMPORTANDO) => import br.com.caelum.alura.codigo.CodigoCategoria;  public class Main { public static void main(String[] args) { 
+    Livro novo = new Livro('Livro de Java', 'João da Silva', CodigoCategoria.JAVA);
+
+System.out.println(novo); } }", "=> (IMPORTAÇÃO) => import Modulo;
+
+console.log(Modulo);"),
+            ("LISTA","Uma sequência embutida no Python. Apesar do seu nome, é mais próximo de um vetor em outras linguagens do que uma lista encadeada, como o acesso aos elementos é da ordem O(1)", "=> [LISTA] => lista = ['O carro','peixe',123,111]", "[LISTA] => ArrayList<String> agenda = new ArrayList(); => agenda.add('Juca Bala';'11 1111-1111');", "[LISTAS] => var frutas = ['Maçã', 'Banana'];
+
+console.log(frutas.length);
+// 2"),
+            ("MÓDULO","Um objeto que serve como uma unidade organizacional de código. Basicamente são bibliotecas que contem funções unicas ", "=> [BIBLIOTECA MATH] => math.floor(x)
+Retorna o piso de x, o maior inteiro menor ou igual a x. Se x não for um ponto flutuante, delega para x.__floor__(), que deve retornar um valor de Integral.", "=> [BIBLIOTECA MATH] => math.floor(x)
+Retorna o piso de x, o maior inteiro menor ou igual a x. Se x não for um ponto flutuante, delega para x.__floor__(), que deve retornar um valor de Integral.", "=> [BIBLIOTECA MATH] => math.floor(x)
+Retorna o piso de x, o maior inteiro menor ou igual a x. Se x não for um ponto flutuante, delega para x.__floor__(), que deve retornar um valor de Integral."),
+            ("TUPLA","O termo “tupla nomeada” é aplicado a qualquer tipo ou classe que herda de tupla e cujos elementos indexáveis também são acessíveis usando atributos nomeados. O tipo ou classe pode ter outras funcionalidades também.", " => [TUPLAS] => caelum_coordenadas = (-23.588254, -46.632477)
+print(type(caelum_coordenadas)))", "0", "0"),
+            ("PARÂMETRO","Uma entidade nomeada na definição de uma função (ou método) que específica um argumento (ou em alguns casos, argumentos) que a função pode receber.", "=> [PARAMETROS FUNCAO] => def calculadora_salario(valor, horas=220):
+    return horas * valor
+
+valor_total = calculadora_salario(299.25)
+
+print(valor_total)", " => [PARAMETROS] => ublic void soma(double n1, double n2)
+    {
+        resultado = n1 + n2;
+        System.out.println('O resultado é: ' + resultado);
+    }", " => [PARAMETROS] => function multiplicar(a, b) {
+  
+  b = 1
+  if(b !== 'undefined' ) {
+	return a*b;
+	}
+}
+multiplicar(5); //==> 5x1 ==> [5]"),
+            ("PRINT","Instrução que leva o interpretador Python a apresentar um valor na tela.", "=> [PRINT] => nome = 'renan' => PRINT ('ola' + nome) = ola renan; ", "=> [PRINT] => String nome = 'rodrigo' ==> System.out.println('ola'+nome) = ola rodrigo;", "=> [PRINT] => let nome = 'leticia' ==> document.write('ola' + nome); = ola leticia"),
+            ("VARIAVEL","Nome que se refere a um valor.","=> [VARIAVEL] => num = 7 ==> tipo int ","=> [VARIAVEL] => double num = 10.5 ==> tipo double","=> [VARIAVEL] => let num = 9.2 ==> tipo float");
+            
+select * from tbl_guiaestudos;
