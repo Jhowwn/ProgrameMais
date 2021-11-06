@@ -51,19 +51,19 @@ function getAlternativas(quest, answ, cont){
         questao: quest.questao,
         alternativas:[
             {
-                id: cont+1,
+                id: cont,
                 alternativa: answ[0].resposta_correta
             },
             {
-                id: cont+2,
+                id: cont+1,
                 alternativa: answ[1].resposta_correta
             },
             {
-                id: cont+3,
+                id: cont+2,
                 alternativa: answ[2].resposta_correta
             },
             {
-                id: cont+4,
+                id: cont+3,
                 alternativa: answ[3].resposta_correta
             }
         ],

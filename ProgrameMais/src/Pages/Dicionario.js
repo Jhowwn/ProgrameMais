@@ -27,10 +27,7 @@ function Dicionario(props) {
     return (
         <ScrollView>
 
-        <View>
-          <View style={styles.divisao}>
-              <Text style={styles.text}>Dicionario</Text>
-          </View>
+        <View style={styles.pageColor}>
 
           <View style={styles.divisao}>
             <Text style={styles.dicionario}>Ache termos que você precisa</Text>

@@ -12,6 +12,9 @@ const styles= StyleSheet.create({
       fontWeight: 'bold',
       color: '#0f0a0a'
     },
+    pageColor: {
+      backgroundColor: 'white'
+    },
     questaoDivisao: {
       backgroundColor: '#E2F9FF',
       borderBottomColor:"#bbb",
@@ -39,6 +42,19 @@ const styles= StyleSheet.create({
       borderBottomColor: 'black',
       borderBottomWidth: 1,
     },
+    containerExi: {
+      borderRadius: 5,
+      marginLeft: 5,
+      marginRight: 5,
+      marginTop: 15,
+      marginBottom: 10,
+      padding: 10,
+      shadowColor: '#f59342',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.8,
+      shadowRadius: 1,  
+      elevation: 2
+    },
     //Estilização do dicionario
     dicionario:{
       fontSize: 20,
@@ -49,17 +65,17 @@ const styles= StyleSheet.create({
     palavrasDesc:{
       fontSize: 15,
       color: '#0f0a0a',
-      padding: 10,
+      padding: 5,
+      marginLeft: 10,
+      marginRight: 10
     },
     diciPalavra:{
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: '#0f0a0a',
-    },
-    containerDici: {
-      backgroundColor: '#E2F9FF',
-      borderBottomColor:"#bbb",
-      borderBottomWidth: 4,
+      fontSize: 20,
+      fontWeight: 'bold',
+      color: '#0f0a0a',
+      padding: 5,
+      marginLeft: 10,
+      marginRight: 10
     },
     //Estilização dos Parceiros
     parceiro:{
@@ -67,11 +83,6 @@ const styles= StyleSheet.create({
       fontWeight: 'bold',
       color: '#0f0a0a',
       padding: 20,
-    },
-    containerParce: {
-      backgroundColor: '#E2F9FF',
-      borderBottomColor:"#bbb",
-      borderBottomWidth: 4,
     },
     descParceiro:{
       fontSize: 15,
@@ -89,11 +100,6 @@ const styles= StyleSheet.create({
       fontWeight: 'bold',
       color: '#0f0a0a',
       padding: 20,
-    },
-    containerGuia: {
-      backgroundColor: '#E2F9FF',
-      borderBottomColor:"#bbb",
-      borderBottomWidth: 4,
     },
     descGuia:{
       fontSize: 15,
@@ -142,7 +148,18 @@ const styles= StyleSheet.create({
       textAlign: 'center',
       color: 'blue',
       padding: 10
-    }
+    },
+    //Novidades
+    newsDesc:{
+      fontSize: 15,
+      color: '#0f0a0a',
+      padding: 10,
+    },
+    newsTitle:{
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: '#0f0a0a',
+    },
 })
 
 export default styles;

@@ -3,6 +3,7 @@ import { Text, View, TouchableOpacity, StyleSheet, SafeAreaView, FlatList } from
 import styles from "../../assets/CSS/stylesCss.js";
 import config from "../../Config/config.json";
 import axios from "axios";
+import {Button} from 'react-native-paper';
 
 
 
@@ -21,6 +22,53 @@ function Questionario(props){
         });
       
     }, []);
+
+    function conferir(resp1, resp2, resp3){
+
+      /*if(listQuestoes[0].corect == listQuestoes[0].alternativas[resp1-1].alternativa){
+        console.log(listQuestoes[0].corect + " é igual "+ resp1);
+      }else{
+        console.log(listQuestoes[0].corect);
+      }*/
+      
+      if(resp2 === 4){
+        resp2 = 0;
+      }else if(resp2 === 5){
+        resp2 = 1;
+      }else if(resp2 === 6){
+        resp2 = 2;
+      }else if(resp2 === 7){
+        resp = 3;
+      }
+
+      if(resp3 === 8){
+        resp3 = 0;
+      }else if(resp3 === 9){
+        resp3 = 1;
+      }else if(resp3 === 10){
+        resp3 = 2;
+      }else if(resp3 === 11){
+        resp3 = 3;
+      }
+      if(listQuestoes[0].corect !== listQuestoes[0].alternativas[resp1].alternativa && listQuestoes[1].corect !== listQuestoes[1].alternativas[resp2].alternativa && listQuestoes[2].corect !== listQuestoes[2].alternativas[resp3].alternativa){
+        //0
+        alert("0 Acertos de 3");
+        
+      }else if(listQuestoes[0].corect === listQuestoes[0].alternativas[resp1].alternativa && listQuestoes[1].corect !== listQuestoes[1].alternativas[resp2].alternativa && listQuestoes[2].corect !== listQuestoes[2].alternativas[resp3].alternativa ||
+        listQuestoes[0].corect !== listQuestoes[0].alternativas[resp1].alternativa && listQuestoes[1].corect === listQuestoes[1].alternativas[resp2].alternativa && listQuestoes[2].corect !== listQuestoes[2].alternativas[resp3].alternativa || 
+        listQuestoes[0].corect !== listQuestoes[0].alternativas[resp1].alternativa && listQuestoes[1].corect !== listQuestoes[1].alternativas[resp2].alternativa && listQuestoes[2].corect === listQuestoes[2].alternativas[resp3].alternativa){
+        //1
+        alert("1 Acertos de 3");
+      }else if(listQuestoes[0].corect === listQuestoes[0].alternativas[resp1].alternativa && listQuestoes[1].corect === listQuestoes[1].alternativas[resp2].alternativa && listQuestoes[2].corect !== listQuestoes[2].alternativas[resp3].alternativa ||
+        listQuestoes[0].corect !== listQuestoes[0].alternativas[resp1].alternativa && listQuestoes[1].corect === listQuestoes[1].alternativas[resp2].alternativa && listQuestoes[2].corect === listQuestoes[2].alternativas[resp3].alternativa || 
+        listQuestoes[0].corect === listQuestoes[0].alternativas[resp1].alternativa && listQuestoes[1].corect !== listQuestoes[1].alternativas[resp2].alternativa && listQuestoes[2].corect === listQuestoes[2].alternativas[resp3].alternativa){
+        //2
+        alert("2 Acertos de 3");
+      }else if(listQuestoes[0].corect === listQuestoes[0].alternativas[resp1].alternativa && listQuestoes[1].corect === listQuestoes[1].alternativas[resp2].alternativa && listQuestoes[2].corect === listQuestoes[2].alternativas[resp3].alternativa){
+        //3
+        alert("Parabéns!!!\n 3 Acertos de 3");
+      }
+    }
     
     const Item = ({ item, onPress, backgroundColor, textColor }) => (
         <TouchableOpacity onPress={onPress}  style={[styles.item, backgroundColor]}>
@@ -50,11 +98,11 @@ function Questionario(props){
       <Item
         item={item}
         onPress={ () => {
-          if(item.id < 5 ){
+          if(item.id < 4 ){
             setSelectedIdQuest1(item.id)
-          }else if(item.id > 4 && item.id < 9){
+          }else if(item.id > 3 && item.id < 8){
             setSelectedIdQuest2(item.id)
-          }else if(item.id>8){
+          }else if(item.id>7){
             setSelectedIdQuest3(item.id)
           }
 
@@ -89,9 +137,16 @@ function Questionario(props){
                 keyExtractor={(item) => item.id.toString()}
                 extraData={selectedIdQuest3}
               />
+              <View>
+                <Button style={style.btn} mode="contained" 
+                  onPress={()=>conferir(selectedIdQuest1, selectedIdQuest2, selectedIdQuest3)}>
+                  Conferir
+                </Button>
+              </View>
               
             </SafeAreaView>
         );
+        
     }
     else{
         return(
@@ -102,5 +157,11 @@ function Questionario(props){
 
     }
 };
+const style= StyleSheet.create({
+  btn:{
+    margin: 10,
+    padding: 10
+  }
+});
 
 export default Questionario;

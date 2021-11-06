@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableHighlight} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import styles from '../../assets/CSS/stylesCss';
 
 function DicionarioList({dici, navigation}){
@@ -8,15 +8,15 @@ function DicionarioList({dici, navigation}){
             const {id_palavra, descricao, palavra} = dicionario;
             
           return(
-            <TouchableHighlight onPress={()=>{
+            <TouchableOpacity onPress={()=>{
                 navigation.navigate("Palavras",{dicionario});//Pode remover, isso vai para a palavra individual
                 
             }} key={id_palavra}>
-                <View style={styles.containerDici}>
+                <View style={styles.containerExi}>
                     <Text style={styles.diciPalavra}>{`${palavra}`}</Text>
                     <Text style={styles.palavrasDesc}>{`${descricao}`}</Text>
                 </View>
-            </TouchableHighlight>
+            </TouchableOpacity>
           )
         });
 
