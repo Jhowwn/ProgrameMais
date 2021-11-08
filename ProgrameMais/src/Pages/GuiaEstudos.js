@@ -27,9 +27,6 @@ function GuiaEstudos(props) {
       <ScrollView>
         <View>
           <View style={styles.divisao}>
-              <Text style={styles.text}>Guia de Estudos</Text>
-          </View>
-          <View style={styles.divisao}>
               <Text style={styles.cronograma}>Cronograma</Text>
           </View>
 

@@ -20,7 +20,7 @@ function Route() {
   const Stack = createStackNavigator();//Armazenando toda a navegação em uma variavel 
   const Drawer = createDrawerNavigator();
 
-  function Register() {//Criando a navegação entre Login e Cadastro
+  function LogOff() {//Criando a navegação entre Login e Cadastro
     return (
       <Stack.Navigator>
         <Stack.Screen name="Login"  component={Login}  options={style}/>
@@ -101,15 +101,14 @@ function Route() {
 
   return (//Crianda todas as navegações do nosso app
     <NavigationContainer>
-      <Drawer.Navigator 
-      screenOptions={
-        {drawerStyle:{ 
+      <Drawer.Navigator initialRouteName='Sair'
+      backBehavior='firstRoute'
+      screenOptions={{
+          drawerStyle:{ 
           backgroundColor:'gray',
           },
+          drawerActiveTintColor:'white',
           drawerHideStatusBarOnOpen: true,}}>
-        <Drawer.Screen name="Register"
-        component={Register}
-        options={{ headerShown: false }}/>
         <Drawer.Screen name="Dicionario"
         component={Dicionario}
         options={style}/>
@@ -125,6 +124,9 @@ function Route() {
         <Drawer.Screen name="Novidades" 
         component={Novidades}  
         options={style}/>
+        <Drawer.Screen name="Sair"
+        component={LogOff}
+        options={{ headerShown: false }}/>
       </Drawer.Navigator>        
     </NavigationContainer>
   )
@@ -138,7 +140,7 @@ const style = {
   },
   headerTitleStyle:{
     fontSize: 30,
-    color: '#050404',
+    color: 'white',
   }
 }
 

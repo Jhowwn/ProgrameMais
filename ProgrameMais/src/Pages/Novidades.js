@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, ScrollView} from 'react-native';
+import { Text, View, ScrollView} from 'react-native';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import config from "../../Config/config.json";
@@ -26,21 +26,13 @@ function Novidades(props) {
   return(
     <ScrollView>
       <View>
-
-        <View style={styles.divisao}>
-                <Text style={styles.text}>Novidades</Text>
-            </View>
-  
             <View style={styles.divisao}>
               <Text style={styles.parceiro}>Leia Novidades Do Mundo da Tecnologia</Text>
             </View>
   
             <View>
-
-              <NovidadesList news={news} navigation={navigation}/>
-              
+              <NovidadesList news={news} navigation={navigation}/>   
             </View>
-
       </View>
     </ScrollView>
     

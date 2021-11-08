@@ -27,12 +27,7 @@ function Parceiros(props) {
 
   return(
     <ScrollView>
-      <View>
-
-        <View style={styles.divisao}>
-                <Text style={styles.text}>Parceiros</Text>
-            </View>
-  
+      <View>  
             <View style={styles.divisao}>
               <Text style={styles.parceiro}>Encontre um Parceiro para seus Estudos </Text>
             </View>
