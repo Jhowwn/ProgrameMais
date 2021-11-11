@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, Linking} from 'react-native';
 import styles from '../../../assets/CSS/stylesCss';
 
 function InfoParceiro({route}){
@@ -8,8 +8,8 @@ function InfoParceiro({route}){
 
   return(
     <View style={styles.container}>
-        <Text>Parceiro: {partner.nome_parceiro}</Text>
         <Text>descricao: {partner.descricao_parceiro}</Text>
+        <Text>Link: <Text onPress={() => Linking.openURL(partner.link_parceiro)} >{partner.link_parceiro}</Text></Text>
     </View>
   );
 }

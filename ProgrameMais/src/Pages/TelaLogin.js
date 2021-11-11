@@ -1,10 +1,10 @@
 import axios from 'axios';
-import { Text, View, StyleSheet, ScrollView} from 'react-native';
+import { Text, View, ScrollView} from 'react-native';
 import React, { useState} from 'react';
 import { TextInput, Button  } from 'react-native-paper';
 import Cadastro from './Cadastro';
 import config from "../../Config/config.json";
-import Dicionario from './Dicionario';
+
 
 function Login({navigation}){
 
@@ -21,13 +21,10 @@ function Login({navigation}){
         event.preventDefault();
 
         const {data} = await axios.post(config.urlNode+"login", userData);
-        //console.log(data.user[0].nome);
-        console.log(navigation)
-        //console.log(data)
 
         if (data !== "Login incorreto!"){
             alert(data.user[0].nome);
-            navigation.navigate('Dicionario', Dicionario);
+            navigation.navigate('Dicionario');
         }else if(data === "Login incorreto!"){
             
             alert("Dados não inseridos");
@@ -37,7 +34,7 @@ function Login({navigation}){
     }
 
     return(
-        <View>
+        <ScrollView>
             <Text>Acesse sua conta</Text>
             <View>
                 <TextInput
@@ -48,6 +45,7 @@ function Login({navigation}){
                 <TextInput
                     label="Senha de acesso"
                     secureTextEntry
+
                     value={password}
                     onChangeText={pass => setPassword(pass)}
                 />
@@ -62,7 +60,7 @@ function Login({navigation}){
                     }}>Cadastrar uma conta</Button>
             </View>
 
-        </View>
+        </ScrollView>
         )
 }
 

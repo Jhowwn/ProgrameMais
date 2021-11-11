@@ -8,7 +8,6 @@ function Estudos({route}){
 
   return(
     <View style={styles.container}>
-        <Text style={styles.guiaNome}>{estudos.nome_guia}</Text>
         <Text style={styles.guiaDescricao}>descricao: {estudos.descricao_guia}</Text>
         <Text>Segue os links para mais informações</Text>
         <Text style={styles.guiaExep}>Link Python: <Text style={styles.linkGuia} onPress={() => Linking.openURL(estudos.link_python)} >{estudos.link_python}</Text></Text>

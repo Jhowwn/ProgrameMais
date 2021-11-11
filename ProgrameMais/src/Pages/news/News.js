@@ -8,7 +8,6 @@ function News({route}) {
 
     return (
         <View style={styles.container}>
-        <Text style={styles.palavraNome}>{novidades.titulo_novidade}</Text>
         <Text style={styles.palavrasDescricao}>{novidades.novidade}</Text>
     </View>
     )

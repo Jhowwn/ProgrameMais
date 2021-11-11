@@ -21,8 +21,6 @@ function GuiaEstudos(props) {
 
   },[]);
 
-  console.log(guia)
-
     return (
       <ScrollView>
         <View>
