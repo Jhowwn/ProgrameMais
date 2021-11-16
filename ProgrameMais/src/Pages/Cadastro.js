@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Text, View, TextInput,StyleSheet, ScrollView,Alert} from 'react-native';
+import { Text, View, TextInput, StyleSheet, ScrollView, Alert} from 'react-native';
 import React, { useState} from 'react';
 import { Button  } from 'react-native-paper';
 import config from "../../Config/config.json";
@@ -24,23 +24,25 @@ function Cadastrar({navigation}){
         event.preventDefault();
 
         if(password == ''|| confirmPass == '' || name == '' || username == ''){
-            alert('Você não preencheu alguns dados')
+            Alert.alert("Prencha os dados",'Você não preencheu alguns dados', [{text:"OK"}])
         }
         else if (username.length > 35){
-            alert('Email deve conter no máximo 35 caracteres!')
+            Alert.alert("Email muito grande", 'Email deve conter no máximo 35 caracteres!', [{text:"OK"}])
         }
         else if (name.length > 30){
-            alert('Nome deve conter no máximo 30 caracteres!')
+            Alert.alert("Nome muito grande", 'Nome deve conter no máximo 30 caracteres!', [{text:"OK"}])
         }
         else if (password.length > 15){
-            alert('Senha deve conter no máximo 15 caracteres')
+            Alert.alert("Senha muito grande", 'Senha deve conter no máximo 15 caracteres', [{text:"OK"}])
         }
         else if(password !== confirmPass){
-            alert("Senha está diferente");
+            Alert.alert("Senha errada", "Senha está diferente", [{text:"OK"}]);
         }else{
             const {data} = await axios.post(`${config.urlNode}cadastrar`, userData);
 
-            if (data == data.errors){
+            console.log(data.errors )
+            if (data.errors){
+                console.log('entrou')
                 //Verifico se há erros e indico que as informaçoes contem algum erro
                 const errors = data.errors.map((error) => {
                     const erro = error.msg
@@ -48,7 +50,7 @@ function Cadastrar({navigation}){
                     return allError
                 })
                 
-                if (errors){
+                if (errors.length > 0){
                     return Alert.alert(
                         "Confira essas informações",
                         errors.join('\n'),
@@ -62,9 +64,21 @@ function Cadastrar({navigation}){
             }
             
             else if (data == 'Usuário já tem cadastro no sistema!' ){
-                alert(`${data}/n Escolha outro usuario!`);   
+                return Alert.alert(
+                    "Usuario já cadastrado",
+                    "Tente outro",
+                    [
+                        {text: "OK"}
+                    ]
+                    );   
             }else{
-                    alert(data);
+                Alert.alert(
+                    "Boas Vindas",
+                    "Seja Bem Vindo!!!",
+                    [
+                        {text: "OK"}
+                    ]
+                    );   
                     navigation.navigate('Dicionario');
                 }
         }

@@ -22,7 +22,7 @@ function Route() {
 
   function LogOff() {//Criando a navegação entre Login e Cadastro
     return (
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name="Login"  component={Login}  options={style}/>
         <Stack.Screen name="Cadastrar" component={Cadastrar} options={style}/>
       </Stack.Navigator>

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Text, View, ScrollView} from 'react-native';
+import { Text, View, ScrollView, Alert} from 'react-native';
 import React, { useState} from 'react';
 import { TextInput, Button  } from 'react-native-paper';
 import Cadastro from './Cadastro';
@@ -23,11 +23,11 @@ function Login({navigation}){
         const {data} = await axios.post(config.urlNode+"login", userData);
 
         if (data !== "Login incorreto!"){
-            alert(data.user[0].nome);
+            Alert.alert("Olá", "Seja Bem Vindo!!!", [{text:"OK"}]);
             navigation.navigate('Dicionario');
         }else if(data === "Login incorreto!"){
             
-            alert("Dados não inseridos");
+            Alert.alert("Algo deu Errado","Verifique se seus dados estão corretos", [{text:"OK"}]);
             
         }
 
