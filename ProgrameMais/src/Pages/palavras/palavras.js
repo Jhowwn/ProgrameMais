@@ -9,9 +9,17 @@ function Palavras({route}){
   return(
     <View style={styles.container}>
         <Text style={styles.palavrasDescricao}>descricao: {dicionario.descricao}</Text>
-        {dicionario.exep_python !== "" && <Text style={styles.boxExep}>exemplo Python: {dicionario.exep_python}</Text>}
-        {dicionario.exep_java !== "" && <Text style={styles.boxExep}>exemplo Java: {dicionario.exep_java}</Text>}
-        {dicionario.exep_javascript !== "" && <Text style={styles.boxExep}>exemplo JavaScript: {dicionario.exep_javascript}</Text>}
+        <View style={styles.containerExi}>
+          <View style={styles.containerExi}>
+          {dicionario.exep_python !== "" && <Text style={styles.boxExep}>exemplo Python: {dicionario.exep_python}</Text>}
+          </View>
+          <View style={styles.containerExi}>
+          {dicionario.exep_java !== "" && <Text style={styles.boxExep}>exemplo Java: {dicionario.exep_java}</Text>}
+          </View>
+          <View style={styles.containerExi}>
+          {dicionario.exep_javascript !== "" && <Text style={styles.boxExep}>exemplo JavaScript: {dicionario.exep_javascript}</Text>}
+          </View>
+        </View>
     </View>
   );
 }

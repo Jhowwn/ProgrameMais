@@ -6,8 +6,8 @@ import axios from "axios";
 import {Button} from 'react-native-paper';
 
 
-
 function Questionario(props){
+    //const navigation = props;
     const [listQuestoes, setListQuestoes] = useState([]);
     const [selectedIdQuest1, setSelectedIdQuest1] = useState(null);
     const [selectedIdQuest2, setSelectedIdQuest2] = useState(null);
@@ -30,6 +30,7 @@ function Questionario(props){
       }else{
         console.log(listQuestoes[0].corect);
       }*/
+      //let msg;
       
       if(resp2 === 4){
         resp2 = 0;
@@ -52,6 +53,8 @@ function Questionario(props){
       }
       if(listQuestoes[0].corect !== listQuestoes[0].alternativas[resp1].alternativa && listQuestoes[1].corect !== listQuestoes[1].alternativas[resp2].alternativa && listQuestoes[2].corect !== listQuestoes[2].alternativas[resp3].alternativa){
         //0
+       // msg = "0 Acertos de 3";
+        //return msg;
         alert("0 Acertos de 3");
         
       }else if(listQuestoes[0].corect === listQuestoes[0].alternativas[resp1].alternativa && listQuestoes[1].corect !== listQuestoes[1].alternativas[resp2].alternativa && listQuestoes[2].corect !== listQuestoes[2].alternativas[resp3].alternativa ||
@@ -59,14 +62,19 @@ function Questionario(props){
         listQuestoes[0].corect !== listQuestoes[0].alternativas[resp1].alternativa && listQuestoes[1].corect !== listQuestoes[1].alternativas[resp2].alternativa && listQuestoes[2].corect === listQuestoes[2].alternativas[resp3].alternativa){
         //1
         alert("1 Acertos de 3");
+        //return msg;
       }else if(listQuestoes[0].corect === listQuestoes[0].alternativas[resp1].alternativa && listQuestoes[1].corect === listQuestoes[1].alternativas[resp2].alternativa && listQuestoes[2].corect !== listQuestoes[2].alternativas[resp3].alternativa ||
         listQuestoes[0].corect !== listQuestoes[0].alternativas[resp1].alternativa && listQuestoes[1].corect === listQuestoes[1].alternativas[resp2].alternativa && listQuestoes[2].corect === listQuestoes[2].alternativas[resp3].alternativa || 
         listQuestoes[0].corect === listQuestoes[0].alternativas[resp1].alternativa && listQuestoes[1].corect !== listQuestoes[1].alternativas[resp2].alternativa && listQuestoes[2].corect === listQuestoes[2].alternativas[resp3].alternativa){
         //2
-        alert("2 Acertos de 3");
+        
+        alert( "2 Acertos de 3"+" "+selectedIdQuest3);
+        //return msg;
       }else if(listQuestoes[0].corect === listQuestoes[0].alternativas[resp1].alternativa && listQuestoes[1].corect === listQuestoes[1].alternativas[resp2].alternativa && listQuestoes[2].corect === listQuestoes[2].alternativas[resp3].alternativa){
         //3
-        alert("Parabéns!!!\n 3 Acertos de 3");
+        alert("Parabéns!!!\n 3 Acertos de 3"+" "+selectedIdQuest3);
+        
+        //return msg;
       }
     }
     
@@ -83,13 +91,13 @@ function Questionario(props){
   const renderItem = ({ item }) => {
     let backgroundColor;
     let color;
-    if(item.id<5){
+    if(item.id<4){
       backgroundColor = item.id === selectedIdQuest1 ? "#6e3b6e" : "#f9c2ff";
       color = item.id === selectedIdQuest1 ? 'white' : 'black';
-    }else if(item.id>4 && item.id<9){
+    }else if(item.id>3 && item.id<8){
       backgroundColor = item.id === selectedIdQuest2 ? "#6e3b6e" : "#f9c2ff";
       color = item.id === selectedIdQuest2 ? 'white' : 'black';
-    }else if(item.id>8){
+    }else if(item.id>7){
         backgroundColor = item.id === selectedIdQuest3 ? "#6e3b6e" : "#f9c2ff";
         color = item.id === selectedIdQuest3 ? 'white' : 'black';
       }
@@ -98,11 +106,11 @@ function Questionario(props){
       <Item
         item={item}
         onPress={ () => {
-          if(item.id < 4 ){
+          if(item.id < 4 && item.id> -1){
             setSelectedIdQuest1(item.id)
           }else if(item.id > 3 && item.id < 8){
             setSelectedIdQuest2(item.id)
-          }else if(item.id>7){
+          }else if(item.id>7 && item.id<12){
             setSelectedIdQuest3(item.id)
           }
 

@@ -4,7 +4,7 @@ async function getQuestion(lang){
     const conn = await database.connect();
     const sql = "SELECT id_questao, questao FROM tbl_questoes Where linguagem = ?";
     const [rows] = await conn.query(sql, lang);
-    conn.end();
+    
 
     return rows;
 }
@@ -22,7 +22,6 @@ async function getAnswer(id_questao, id_questao_2, id_questao_3){
     //console.log(sqlData);
 
     const [rows] = await conn.query(sql, sqlData);
-    conn.end();
 
     return rows;
 }
@@ -33,10 +32,16 @@ async function obterRespostas(id_questao){
     const sqlData = [parseInt(id_questao), parseInt(id_questao)];
 
     const [rows] = await conn.query(sql, sqlData);
-    conn.end();
-
     return rows;
-
 }
 
-export default {getQuestion, getAnswer, obterRespostas}
+async function getLastResult(id_user){
+    const conn = await database.connect();
+    const sql = `SELECT last_tent from usuarios WHERE id_usuario = ?`;
+    const sqlData = parseInt(id_user);
+
+    const [rows] = await conn.query(sql, sqlData);
+    return rows;
+}
+
+export default {getQuestion, getAnswer, obterRespostas, getLastResult}

@@ -9,7 +9,7 @@ function InfoParceiro({route}){
   return(
     <View style={styles.container}>
         <Text>descricao: {partner.descricao_parceiro}</Text>
-        <Text>Link: <Text onPress={() => Linking.openURL(partner.link_parceiro)} >{partner.link_parceiro}</Text></Text>
+        <Text>Link:<Text onPress={() => Linking.openURL(partner.link_parceiro)} style={styles.linkGuia}>{partner.link_parceiro}</Text></Text>
     </View>
   );
 }
