@@ -12,7 +12,7 @@ const router = express.Router();
 
 router.use("/cadastrar", cadastrarUserRouter);
 
-router.use("/login", verifyJWT, loginRouter);
+router.use("/login", loginRouter);
 
 router.use("/parceiros", parceirosRouter);
 

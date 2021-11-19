@@ -38,6 +38,9 @@ function Route() {
 
         return({
           title: titlePage,
+          headerStyle: style.headerInformation,
+          headerTitleStyle: style.headerTitleInformation,
+          headerTintColor: 'white',
         });
       }}/>
       </Stack.Navigator>
@@ -140,6 +143,14 @@ const style = {
   },
   headerTitleStyle:{
     fontSize: 30,
+    color: 'white',
+  },
+  headerInformation:{
+    backgroundColor: "#0075cd",
+  },
+  headerTintColor: 'white',
+  headerTitleInformation:{
+    fontSize: 20,
     color: 'white',
   }
 }

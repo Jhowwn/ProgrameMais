@@ -114,18 +114,84 @@ const styles= StyleSheet.create({
     //Estilização da page Palavras
     palavraNome:{
       fontSize: 20,
-      padding: 10,
-      
+      padding: 10
     },
     palavrasDescricao: {
       fontSize: 15,
       textAlign: 'center',
-      padding: 10
+      padding: 10,
+      color: 'white'
     },
     boxExep: {
       fontSize: 15,
       textAlign: 'center',
-      padding: 10
+      padding: 10,
+      color: 'white'
+    },
+    containerPala:{
+      flex:1,
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    descricaoColor:{
+      backgroundColor: "#b97c77",
+      borderRadius: 5,
+      width: 370,
+      marginLeft: 5,
+      marginRight: 5,
+      marginTop: 25,
+      marginBottom: 10,
+      padding: 10,
+      shadowColor: '#f59342',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.8,
+      shadowRadius: 1,  
+      elevation: 2
+    },
+    palaColor1:{
+      backgroundColor: "#004383",
+      borderRadius: 5,
+      width: 370,
+      marginLeft: 5,
+      marginRight: 5,
+      marginTop: 15,
+      marginBottom: 10,
+      padding: 10,
+      shadowColor: '#f59342',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.8,
+      shadowRadius: 1,  
+      elevation: 2
+    },
+    palaColor2:{
+      backgroundColor: "#0075cd",
+      borderRadius: 5,
+      width: 370,
+      marginLeft: 5,
+      marginRight: 5,
+      marginTop: 15,
+      marginBottom: 10,
+      padding: 10,
+      shadowColor: '#f59342',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.8,
+      shadowRadius: 1,  
+      elevation: 2
+    },
+    palaColor3:{
+      backgroundColor: "#457ade",
+      borderRadius: 5,
+      width: 370,
+      marginLeft: 5,
+      marginRight: 5,
+      marginTop: 15,
+      marginBottom: 30,
+      padding: 10,
+      shadowColor: '#f59342',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.8,
+      shadowRadius: 1,  
+      elevation: 2
     },
      //Estilização da page Estudos
      guiaNome:{
