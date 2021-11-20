@@ -226,6 +226,10 @@ const styles= StyleSheet.create({
         fontWeight: 'bold',
         color: '#0f0a0a',
     },
+    image:{
+      width: 200,
+      height: 200
+    }
 })
 
 export default styles;
