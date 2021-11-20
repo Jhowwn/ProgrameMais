@@ -47,7 +47,7 @@ function Route() {
     )
   }
 
-  function Desafios(){
+  function Desafios(){//Navegação entre desafios e questionario
     return (
       <Stack.Navigator>
         <Stack.Screen name="Desafio" component={Desafio}  options={{ headerShown: false }}/>
@@ -56,7 +56,7 @@ function Route() {
     )
   }
 
-  function Parceiros() {
+  function Parceiros() {//Navegação entre Parceiros e as informações dele
     return(
       <Stack.Navigator>
         <Stack.Screen name="Parceiro" component={Parceiro}  options={{ headerShown: false }}/>
@@ -65,13 +65,16 @@ function Route() {
 
         return({
           title: titlePage,
+          headerStyle: style.headerInformation,
+          headerTitleStyle: style.headerTitleInformation,
+          headerTintColor: 'white',
         });
       }}/>
       </Stack.Navigator>
     )
   }
 
-  function GuiaEstudos() {
+  function GuiaEstudos() {//Navegação entre a guia de estudos e estudos onde contem o conteúdo para estudo
     return(
       <Stack.Navigator>
         <Stack.Screen name="Guia" component={GuiaEstudo}  options={{ headerShown: false }}/>
@@ -80,13 +83,16 @@ function Route() {
 
         return({
           title: titlePage,
+          headerStyle: style.headerInformation,
+          headerTitleStyle: style.headerTitleInformation,
+          headerTintColor: 'white',
         });
       }}/>
       </Stack.Navigator>
     )
   }
 
-  function Novidades() {
+  function Novidades() {//Navegação entre novidade e novidade selecionada
     return(
       <Stack.Navigator>
         <Stack.Screen name="Novidade" component={Novidade}  options={{headerShown: false}}/>
@@ -95,6 +101,9 @@ function Route() {
 
           return ({
             title: titlePage,
+            headerStyle: style.headerInformation,
+            headerTitleStyle: style.headerTitleInformation,
+            headerTintColor: 'white',
           });
         }}
       />

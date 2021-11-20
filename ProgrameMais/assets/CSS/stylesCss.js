@@ -202,12 +202,14 @@ const styles= StyleSheet.create({
     guiaDescricao: {
       fontSize: 15,
       textAlign: 'center',
-      padding: 10
+      padding: 10,
+      color: 'white'
     },
     guiaExep: {
-      fontSize: 15,
+      fontSize: 20,
       textAlign: 'center',
-      padding: 10
+      padding: 10,
+      color: 'white'
     },
     linkGuia: {
       fontSize: 15,
