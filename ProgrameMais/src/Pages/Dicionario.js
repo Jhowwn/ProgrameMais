@@ -13,29 +13,29 @@ function Dicionario(props) {
 
   const {navigation} = props;
 
-  const [dici, setDici] = useState([]);
+  const [dici, setDici] = useState([]);//Uso os state para manipular os dados
 
-  useEffect( () => {
-    axios.get(config.urlNode+"dicionario")
+  useEffect( () => {//Faço uma busca na nossa api que vai no banco e nos tras os dadso requisitados
+    axios.get(config.urlNode+"dicionario")//Acesso o back aatravés do axios
         .then(resposta =>{
-          setDici(resposta.data)
-        }).catch(err =>{
+          setDici(resposta.data)//Se der certo salva as infomações em setDici que passa tudo para dici
+        }).catch(err =>{//Se der errado
           console.log("Ocorreu um erro" + err)
         });
   }, []);
   
     return (
-        <ScrollView>
+        <ScrollView>{/*Construo a estrutura que será exibido os dados */}
 
         <View style={styles.pageColor}>
 
           <View style={styles.divisao}>
-            <Text style={styles.dicionario}>Ache termos que você precisa</Text>
+            <Text style={styles.textCompo}>Encontre os termos que você precisa</Text>
           </View>
 
           <View>
               
-            <Dici dici={dici} navigation={navigation}/>
+            <Dici dici={dici} navigation={navigation}/>{/*Mando as informações para o componente dici para tratar lá */}
 
           </View>
 

@@ -39,13 +39,17 @@ const styles= StyleSheet.create({
       color:'#F00'
     },
     divisao:{
-      borderBottomColor: 'black',
-      borderBottomWidth: 1,
+      backgroundColor: "#004383",
+      shadowColor: '#f59342',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.8,
+      shadowRadius: 1,  
+      elevation: 2
     },
     containerExi: {
       borderRadius: 5,
-      marginLeft: 5,
-      marginRight: 5,
+      marginLeft: 10,
+      marginRight: 10,
       marginTop: 15,
       marginBottom: 10,
       padding: 10,
@@ -53,18 +57,19 @@ const styles= StyleSheet.create({
       shadowOffset: { width: 0, height: 2 },
       shadowOpacity: 0.8,
       shadowRadius: 1,  
-      elevation: 2
+      elevation: 2,
+      backgroundColor: "#0075cd"
     },
-    //Estilização do dicionario
-    dicionario:{
+    textCompo:{
       fontSize: 20,
       fontWeight: 'bold',
-      color: '#0f0a0a',
+      color: 'white',
       padding: 20,
     },
+    //Estilização do dicionario
     palavrasDesc:{
       fontSize: 15,
-      color: '#0f0a0a',
+      color: 'white',
       padding: 5,
       marginLeft: 10,
       marginRight: 10
@@ -72,44 +77,42 @@ const styles= StyleSheet.create({
     diciPalavra:{
       fontSize: 20,
       fontWeight: 'bold',
-      color: '#0f0a0a',
+      color: 'white',
       padding: 5,
       marginLeft: 10,
       marginRight: 10
     },
     //Estilização dos Parceiros
-    parceiro:{
-      fontSize: 20,
-      fontWeight: 'bold',
-      color: '#0f0a0a',
-      padding: 20,
-    },
     descParceiro:{
       fontSize: 15,
-      color: '#0f0a0a',
-      padding: 10,
+      color: 'white',
+      padding: 5,
+      marginLeft: 10,
+      marginRight: 10
     },
     nomeParceiro:{
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: '#0f0a0a',
-    },
-    //Estilização da guia de Estudos
-    cronograma:{
       fontSize: 20,
       fontWeight: 'bold',
-      color: '#0f0a0a',
-      padding: 20,
+      color: 'white',
+      padding: 5,
+      marginLeft: 10,
+      marginRight: 10
     },
+    //Estilização da guia de Estudos
     descGuia:{
       fontSize: 15,
-      color: '#0f0a0a',
-      padding: 10,
+      color: 'white',
+      padding: 5,
+      marginLeft: 10,
+      marginRight: 10
     },
     guia:{
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: '#0f0a0a',
+      fontSize: 20,
+      fontWeight: 'bold',
+      color: 'white',
+      padding: 5,
+      marginLeft: 10,
+      marginRight: 10
     },
     //Estilização da page Palavras
     palavraNome:{
@@ -220,13 +223,18 @@ const styles= StyleSheet.create({
     //Novidades
     newsDesc:{
       fontSize: 15,
-      color: '#0f0a0a',
-      padding: 10,
+      color: 'white',
+      padding: 5,
+      marginLeft: 10,
+      marginRight: 10
     },
     newsTitle:{
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: '#0f0a0a',
+      fontSize: 20,
+      fontWeight: 'bold',
+      color: 'white',
+      padding: 5,
+      marginLeft: 10,
+      marginRight: 10
     },
     image:{
       width: 200,
