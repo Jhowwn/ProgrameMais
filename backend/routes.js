@@ -6,7 +6,7 @@ import desafiosRouter from "./Middleware/Desafios/desafiosRouter.js";
 import dicionarioRouter from "./Middleware/Dicionario/dicionarioRouter.js";
 import guiaEstudosRouter from "./Middleware/GuiaEstudos/guiaEstudosRouter.js";
 import novidadesRouter from "./Middleware/Novidades/novidadesRouter.js";
-
+import {verifyJWT} from './Middleware/json/jwt.js'
 
 const router = express.Router();
 

@@ -10,26 +10,24 @@ function Parceiros(props) {
   //Guardo e exibo os resultados em tela
 
   const {navigation} = props;
-  //console.log(navigation)
 
-  const [listState, setListState] = useState([]);
+  const [listState, setListState] = useState([]);//Uso os state para manipular os dados
 
-  useEffect(()=>{
-    axios.get(config.urlNode+"parceiros")
-    .then(response=>{
+  useEffect( () => {//Faço uma busca na nossa api que vai no banco e nos tras os dadso requisitados
+    axios.get(config.urlNode+"parceiros")//Acesso o back aatravés do axios
+    .then(response=>{//Se der certo salva as infomações em setGuia que passa tudo para guia
         setListState(response.data);
-    }).catch(error=>{
+    }).catch(error=>{//Se der errado
       console.log(`Ocorreu um erro! ${error}`);
     });
 
   },[]);
-  //console.info(listState);
 
   return(
     <ScrollView>
       <View>  
             <View style={styles.divisao}>
-              <Text style={styles.parceiro}>Encontre um Parceiro para seus Estudos </Text>
+              <Text style={styles.textCompo}>Encontre um Parceiro para seus Estudos </Text>
             </View>
   
             <View>

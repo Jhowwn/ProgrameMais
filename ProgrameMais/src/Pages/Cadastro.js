@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Text, View, TextInput, StyleSheet, ScrollView, Alert} from 'react-native';
+import { View, TextInput, StyleSheet, ScrollView, Alert} from 'react-native';
 import React, { useState} from 'react';
 import { Button  } from 'react-native-paper';
 import config from "../../Config/config.json";
@@ -80,6 +80,10 @@ function Cadastrar({navigation}){
                     ]
                     );   
                     navigation.navigate('Dicionario');
+                    setUserName('');
+                    setName('');
+                    setPassword('');
+                    setConfirmPass('');
                 }
         }
         
@@ -88,7 +92,6 @@ function Cadastrar({navigation}){
 
     return(
         <View>
-            <Text>Cadastre-se</Text>
             <View>
                 <TextInput
                 style={styles.input}
