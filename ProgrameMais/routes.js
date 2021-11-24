@@ -14,6 +14,8 @@ import InfoParceiro from './src/Pages/parceiros/InfoParceiro';
 import Estudos from './src/Pages/estudos/Estudos.js';
 import Novidade from './src/Pages/Novidades';
 import News from './src/Pages/news/News';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Iconawesome from 'react-native-vector-icons/FontAwesome5';
 
 function Route() {
 
@@ -116,29 +118,93 @@ function Route() {
       <Drawer.Navigator initialRouteName='Sair'
       backBehavior='firstRoute'
       screenOptions={{
+          drawerHideStatusBarOnOpen: false,
           drawerStyle:{ 
-          backgroundColor:'gray',
+            backgroundColor:'white',
           },
+          drawerItemStyle: {marginTop: 10},
           drawerActiveTintColor:'white',
-          drawerHideStatusBarOnOpen: true,}}>
+          drawerActiveBackgroundColor: '#0075cd',
+          }}>
+
         <Drawer.Screen name="Dicionario"
         component={Dicionario}
-        options={style}/>
+        options={{
+          headerStyle: style.headerStyle,
+          headerTitleStyle: style.headerTitleStyle,
+          headerTintColor: style.headerTintColor,
+          drawerIcon: ({focused, size}) => (
+            <Iconawesome name="book" 
+               size={size}
+               color={focused ? 'white' : 'black'}
+            />
+         ),}}/>
+
         <Drawer.Screen name="Desafios"
         component={Desafios}
-        options={style}/>
+        options={{
+          headerStyle: style.headerStyle,
+          headerTitleStyle: style.headerTitleStyle,
+          headerTintColor: style.headerTintColor,
+          drawerIcon: ({focused, size}) => (
+            <Iconawesome name="tasks" 
+               size={size}
+               color={focused ? 'white' : 'black'}
+            />
+         ),}}/>
+
         <Drawer.Screen name="Parceiros"
         component={Parceiros}
-        options={style}/>
+        options={{
+          headerStyle: style.headerStyle,
+          headerTitleStyle: style.headerTitleStyle,
+          headerTintColor: style.headerTintColor,
+          drawerIcon: ({focused, size}) => (
+            <Iconawesome name="handshake" 
+               size={size}
+               color={focused ? 'white' : 'black'}
+            />
+         ),}}/>
+
         <Drawer.Screen name="Guia de Estudos"
         component={GuiaEstudos}
-        options={style}/>
+        options={{
+          headerStyle: style.headerStyle,
+          headerTitleStyle: style.headerTitleStyle,
+          headerTintColor: style.headerTintColor,
+          drawerIcon: ({focused, size}) => (
+            <Iconawesome name="list-alt" 
+               size={size}
+               color={focused ? 'white' : 'black'}
+            />
+         ),}}/>
+
         <Drawer.Screen name="Novidades" 
         component={Novidades}  
-        options={style}/>
+        options={{
+          headerStyle: style.headerStyle,
+          headerTitleStyle: style.headerTitleStyle,
+          headerTintColor: style.headerTintColor,
+          drawerIcon: ({focused, size}) => (
+            <Icon name="newspaper" 
+               size={size}
+               color={focused ? 'white' : 'black'}
+            />
+         ),}}/>
+
         <Drawer.Screen name="Sair"
         component={LogOff}
-        options={{ headerShown: false }}/>
+        options={{ 
+          headerShown: false,
+          headerStyle: style.headerStyle,
+          headerTitleStyle: style.headerTitleStyle,
+          headerTintColor: style.headerTintColor,
+          drawerIcon: ({focused, size}) => (
+            <Icon name="logout" 
+               size={size}
+               color={focused ? 'white' : 'black'}
+            />
+          ), }}/>
       </Drawer.Navigator>        
     </NavigationContainer>
   )
