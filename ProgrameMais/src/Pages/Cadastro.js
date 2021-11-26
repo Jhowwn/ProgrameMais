@@ -3,6 +3,7 @@ import { View, TextInput, StyleSheet, ScrollView, Alert} from 'react-native';
 import React, { useState} from 'react';
 import { Button  } from 'react-native-paper';
 import config from "../../Config/config.json";
+import styles from '../../assets/CSS/stylesCss';
 
 function Cadastrar({navigation}){
 
@@ -91,8 +92,9 @@ function Cadastrar({navigation}){
     }
 
     return(
-        <View>
-            <View>
+        <ScrollView style={styles.entrar}>
+        <View >
+            <View style={styles.modalCad}>
                 <TextInput
                 style={styles.input}
                     label="Email"
@@ -126,22 +128,17 @@ function Cadastrar({navigation}){
                     onChangeText={pass => setConfirmPass(pass)}
                 />
                 <Button 
-                    mode="contained" 
-                    onPress={handleSubmit}
-                    >Entrar</Button>
+                        mode="contained" 
+                        style={styles.butt}
+                        dark= 'true'
+                        color='#211478'
+                        onPress={handleSubmit}
+                        >Entrar</Button>
             </View>
 
         </View>
+        </ScrollView>
         )
 }
-
-const styles = StyleSheet.create({
-    input: {
-      height: 40,
-      margin: 12,
-      borderWidth: 1,
-      padding: 10,
-    },
-  });
 
 export default Cadastrar;

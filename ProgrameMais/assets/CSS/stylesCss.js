@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-import { startClock } from "react-native-reanimated";
 
 const styles= StyleSheet.create({
     container:{
@@ -142,7 +141,7 @@ const styles= StyleSheet.create({
       width: 370,
       marginLeft: 5,
       marginRight: 5,
-      marginTop: 25,
+      marginTop: 20,
       marginBottom: 10,
       padding: 10,
       shadowColor: '#f59342',
@@ -243,7 +242,62 @@ const styles= StyleSheet.create({
       marginRight: 10,
       width: 330,
       height: 470
-    }
+    },
+    modal: {
+      backgroundColor: 'white',
+      borderRadius: 4,
+      marginLeft: 15,
+      marginRight: 15,
+      marginTop: 300,
+      marginBottom: 300,
+      padding: 10,
+      shadowColor: '#f59342',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.8,
+      shadowRadius: 1,  
+      elevation: 2,
+      display: 'flex',
+      flexDirection: 'column',
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    butt:{
+      height: 40,
+      width: 340, 
+      marginBottom: 20,
+      marginLeft: 0
+    },
+    input: {
+      height: 40,
+      width: 340,
+      margin: 12,
+      borderWidth: 1,
+      padding: 10,
+    },
+    entrar:{
+      backgroundColor: '#0075cd',
+      
+    },
+    modalCad: {
+      backgroundColor: 'white',
+      borderRadius: 4,
+      marginLeft: 15,
+      marginRight: 15,
+      marginTop: 200,
+      marginBottom: 300,
+      padding: 10,
+      shadowColor: '#f59342',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.8,
+      shadowRadius: 1,  
+      elevation: 2,
+      display: 'flex',
+      flexDirection: 'column',
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
 })
 
 export default styles;

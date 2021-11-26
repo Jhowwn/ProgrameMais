@@ -4,7 +4,7 @@ import React, { useState} from 'react';
 import { Button  } from 'react-native-paper';
 import Cadastro from './Cadastro';
 import config from "../../Config/config.json";
-
+import styles from '../../assets/CSS/stylesCss';
 
 function Login({navigation}){
 
@@ -36,50 +36,48 @@ function Login({navigation}){
     }
 
     return(
-        <ScrollView>
-            <View>
-                <TextInput
-                    style={styles.input}
-                    label="Email"
-                    autoComplete={'email'}
-                    keyboardType={'email-address'}
-                    placeholder="Email"
-                    value={username}
-                    onChangeText={name => setUserName(name)}
-                    
-                />
-                <TextInput
-                style={styles.input}
-                    label="Senha de acesso"
-                    placeholder="Senha"
-                    secureTextEntry
-                    value={password}
-                    onChangeText={pass => setPassword(pass)}
-                    
-                />
-                <Button 
-                    mode="contained" 
-                    onPress={handleSubmit}
-                    >Entrar</Button>
-                <Button 
-                    mode="contained"
-                    onPress={()=>{
-                        navigation.navigate(Cadastro);
-                    }}>Cadastrar uma conta</Button>
+        <ScrollView style={styles.entrar}>
+            <View style={styles.entrar}>
+                    <View style={styles.modal}>
+                        <TextInput
+                            style={styles.input}
+                            label="Email"
+                            autoComplete={'email'}
+                            keyboardType={'email-address'}
+                            placeholder="Email"
+                            value={username}
+                            onChangeText={name => setUserName(name)}
+                            
+                        />
+                        <TextInput
+                        style={styles.input}
+                            label="Senha de acesso"
+                            placeholder="Senha"
+                            secureTextEntry
+                            value={password}
+                            onChangeText={pass => setPassword(pass)}
+                            
+                        />
+                        <Button 
+                            mode="contained" 
+                            style={styles.butt}
+                            dark= 'true'
+                            color='#211478'
+                            onPress={handleSubmit}
+                            >Entrar</Button>
+                        <Button 
+                            mode="contained"
+                            style={styles.butt}
+                            dark= 'true'
+                            color='#211478'
+                            onPress={()=>{
+                                navigation.navigate(Cadastro);
+                            }}>Cadastrar uma conta</Button>
+                    </View>
             </View>
 
         </ScrollView>
         )
 }
-
-const styles = StyleSheet.create({
-    input: {
-      height: 40,
-      margin: 12,
-      borderWidth: 1,
-      padding: 10,
-    },
-  });
-
 
 export default Login;
